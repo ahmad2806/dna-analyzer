@@ -4,44 +4,27 @@
 
 #include "CLI_controller.h"
 void CLI_controller::start_program() {
-    int done = 0;
-    while (!done) {
-        std::string input = View::get_input_from_the_user();
-        Command *cmd = parse_input_to_command(input);
+    CommandHandler cmd_handler;
 
-//        std::string result =  command_handler.run_command(cmd);
+    int done = 0;
+    std::string input;
+    std::vector<std::string> v_convertMeToCommand;
+    while (!done) {
+
+        input = View::get_input_from_the_user();
+        parse_input_to_vector(input, v_convertMeToCommand);
+
+        std::string result =  cmd_handler.create_and_run_command(v_convertMeToCommand);
 //        view.show(result);
 //    }
     }
 }
 
-//Command Factory
-Command *CLI_controller::parse_input_to_command(const std::string &_input) {
 
-    std::vector<std::string> v_inputAfterSplit;
-
-    split_input(_input, v_inputAfterSplit);
-    const std::string firstElement = v_inputAfterSplit.front();
-
-    if (firstElement == "new") {
-        return new CommandNew();
-    }
-    if (firstElement == "print") {
-        return new CommandPrint();
-    }
-    if (firstElement == "exit") {
-        return new CommandExit();
-    }
-
-
-    return 0;
-}
-
-void CLI_controller::split_input(const std::string &_input, std::vector<std::string> &my_vec) {
+void CLI_controller::parse_input_to_vector(const std::string &_input, std::vector<std::string> &my_vec) {
     std::stringstream local_stringStream(_input);
     std::string temp;
     while (local_stringStream >> temp)
         my_vec.push_back(temp);
-
 }
 

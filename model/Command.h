@@ -5,8 +5,9 @@
 #ifndef PROJECT_DNA_ANALYZER_COMMAND_H
 #define PROJECT_DNA_ANALYZER_COMMAND_H
 
+#include <iostream>
 class Command{
 public:
-    virtual void run_command() = 0;
+    virtual std::string run_command() = 0;
 };
 #endif //PROJECT_DNA_ANALYZER_COMMAND_H

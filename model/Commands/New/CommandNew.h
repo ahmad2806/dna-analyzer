@@ -5,12 +5,14 @@
 #ifndef PROJECT_DNA_ANALYZER_COMMANDNEW_H
 #define PROJECT_DNA_ANALYZER_COMMANDNEW_H
 
+#include <iostream>
+
 #include "../../Command.h"
 
 class CommandNew : public Command{
 public:
     CommandNew();
-    void run_command();
+    std::string run_command();
 };
 
 

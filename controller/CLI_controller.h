@@ -13,10 +13,7 @@
 
 #include "../view/View.h"
 
-#include "../model/Command.h"
-#include "../model/Commands/New/CommandNew.h"
-#include "../model/Commands/Print/CommandPrint.h"
-#include "../model/Commands/Exit/CommandExit.h"
+#include "../model/CommandHandler.h"
 
 
 class CLI_controller {
@@ -24,10 +21,7 @@ class CLI_controller {
 public:
     void start_program();
 private:
-    Command* parse_input_to_command(const std::string &_input);
-
-
-    void split_input(const std::string &_input, std::vector<std::string> &my_vec);
+    void parse_input_to_vector(const std::string &_input, std::vector<std::string> &my_vec);
 };
 
 

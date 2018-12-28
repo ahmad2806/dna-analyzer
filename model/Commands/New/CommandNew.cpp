@@ -5,8 +5,8 @@
 #include <iostream>
 #include "CommandNew.h"
 
-void CommandNew::run_command() {
-
+std::string CommandNew::run_command() {
+    return 0;
 }
 
 CommandNew::CommandNew() {

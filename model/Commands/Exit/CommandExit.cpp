@@ -4,6 +4,6 @@
 
 #include "CommandExit.h"
 
-void CommandExit::run_command() {
-
+std::string CommandExit::run_command() {
+    return 0;
 }

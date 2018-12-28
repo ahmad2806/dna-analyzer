@@ -4,9 +4,8 @@
 
 #include "CommandPrint.h"
 
-void CommandPrint::run_command() {
-
-
+std::string CommandPrint::run_command() {
+    return 0;
 }
 
 CommandPrint::CommandPrint() {
