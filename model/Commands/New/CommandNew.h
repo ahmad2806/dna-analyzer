@@ -8,6 +8,8 @@
 #include "../../Command.h"
 
 class CommandNew : public Command{
+public:
+    CommandNew();
     void run_command();
 };
 

@@ -6,4 +6,9 @@
 
 void CommandPrint::run_command() {
 
+
+}
+
+CommandPrint::CommandPrint() {
+    std::cout << "in Print\n";
 }

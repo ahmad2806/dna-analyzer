@@ -6,6 +6,7 @@
 #define PROJECT_DNA_ANALYZER_COMMAND_H
 
 class Command{
+public:
     virtual void run_command() = 0;
 };
 #endif //PROJECT_DNA_ANALYZER_COMMAND_H

@@ -6,9 +6,13 @@
 #define PROJECT_DNA_ANALYZER_COMMANDPRINT_H
 
 
+#include <iostream>
+
 #include "../../Command.h"
 
 class CommandPrint: public Command {
+public:
+    CommandPrint();
     void run_command();
 };
 
