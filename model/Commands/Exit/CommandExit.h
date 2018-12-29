@@ -11,7 +11,9 @@
 class CommandExit : public Command{
 public:
     CommandExit();
-    std::string run_command();
+    bool is_valid(const std::vector<std::string> &vector);
+
+    std::string run_command(const std::vector<std::string> &vector);
 };
 
 

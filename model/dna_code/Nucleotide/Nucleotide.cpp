@@ -23,7 +23,7 @@ Nucleotide &Nucleotide::operator=(const char my_char) {
         check_validate(my_char);
 
     } catch (std::invalid_argument &msg) {
-        std::cout << msg.what() << std::endl;
+//        std::cout << msg.what() << std::endl;
         throw;
     }
     m_nucleotide = my_char;

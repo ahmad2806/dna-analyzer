@@ -19,11 +19,11 @@
 
 class CommandHandler {
 public:
-    std::string create_and_run_command(std::vector<std::string> &_vector);
+    std::string create_and_run_command(const std::vector<std::string> &_vector) const;
 
 private:
 
-    Command *command_factory(std::vector<std::string> &vector);
+    Command *command_factory(const std::string &_commandName)const;
 };
 
 

@@ -18,8 +18,8 @@ public:
     static std::string get_input_from_the_user();
 
     static inline void say_bye();
-    static inline void print_result(std::string& s);
-    static inline void print_invalid_command(std::invalid_argument &argument);
+    static inline void print_result(const std::string& s);
+    static inline void print_invalid_command(const std::invalid_argument &argument);
 };
 
 
@@ -27,11 +27,11 @@ void View::say_bye() {
     std::cout << "bye !" << std::endl;
 }
 
-void View::print_invalid_command(std::invalid_argument &argument) {
+void View::print_invalid_command(const std::invalid_argument &argument) {
     std::cout << argument.what() <<std::endl;
 }
 
-void View::print_result(std::string &s) {
+void View::print_result(const std::string &s) {
     std::cout << s << std::endl;
 }
 

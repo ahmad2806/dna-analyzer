@@ -6,9 +6,10 @@
 #define PROJECT_DNA_ANALYZER_COMMAND_H
 
 #include <iostream>
+#include <vector>
 class Command{
 public:
-    virtual std::string run_command() = 0;
+    virtual std::string run_command(const std::vector<std::string> &vector) = 0;
     virtual ~Command(){};
 };
 #endif //PROJECT_DNA_ANALYZER_COMMAND_H

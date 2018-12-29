@@ -4,7 +4,7 @@
 
 #include "CommandPrint.h"
 
-std::string CommandPrint::run_command() {
+std::string CommandPrint::run_command(const std::vector<std::string> &vector) {
     std::string s = "dad";
     return s;
 }
@@ -12,3 +12,4 @@ std::string CommandPrint::run_command() {
 CommandPrint::CommandPrint() {
     std::cout << "in command Print\n";
 }
+

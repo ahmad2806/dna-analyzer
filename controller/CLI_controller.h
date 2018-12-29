@@ -18,9 +18,9 @@
 class CLI_controller {
 
 public:
-    void start_program();
+    void start_program() const;
 private:
-    void parse_input_to_vector(const std::string &_input, std::vector<std::string> &my_vec);
+    void parse_input_to_vector(const std::string &_input, std::vector<std::string> &my_vec) const;
 };
 
 

@@ -13,7 +13,7 @@
 class CommandPrint: public Command {
 public:
     CommandPrint();
-    std::string run_command();
+    std::string run_command(const std::vector<std::string> &vector);
 };
 
 

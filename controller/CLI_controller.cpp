@@ -4,7 +4,7 @@
 
 #include "CLI_controller.h"
 
-void CLI_controller::start_program() {
+void CLI_controller::start_program() const{
     CommandHandler cmdHandler;
 
     bool b_moreCommands = true;
@@ -34,7 +34,7 @@ void CLI_controller::start_program() {
     }
 }
 
-void CLI_controller::parse_input_to_vector(const std::string &_input, std::vector<std::string> &myVec) {
+void CLI_controller::parse_input_to_vector(const std::string &_input, std::vector<std::string> &myVec) const{
     std::stringstream local_stringStream(_input);
     std::string temp;
     while (local_stringStream >> temp)

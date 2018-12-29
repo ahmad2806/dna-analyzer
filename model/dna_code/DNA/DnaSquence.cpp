@@ -121,7 +121,6 @@ std::ostream &operator<<(std::ostream &os, const DnaSequence &squence) {
     size_t i;
     size_t len = squence.getlength();
 
-    os << "Dna Sequence is : ";
     for (i = 0; i < len; ++i)
         os << squence[i];
     return os;

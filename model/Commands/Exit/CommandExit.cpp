@@ -4,7 +4,9 @@
 
 #include "CommandExit.h"
 
-std::string CommandExit::run_command() {
+
+
+std::string CommandExit::run_command(const std::vector<std::string> &vector) {
     std::string s = "exit";
 
 
@@ -14,4 +16,8 @@ std::string CommandExit::run_command() {
 
 CommandExit::CommandExit() {
     std::cout << "in Command Exit\n";
+}
+
+bool CommandExit::is_valid(const std::vector<std::string> &vector) {
+    return false;
 }
