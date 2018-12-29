@@ -1,25 +1,18 @@
 //
 // Created by ahmad on 29/12/2018.
 //
-
-#include <stdexcept>
 #include "CommandHandler.h"
-#include "Commands/CommandFactory.h"
-#include "Commands/New/CommandNew.h"
-#include "Commands/Exit/CommandExit.h"
-#include "Commands/Print/CommandPrint.h"
-
-std::string CommandHandler::run(Command *pCommand) {
-
-    return std::string();
-}
 
 std::string CommandHandler::create_and_run_command(std::vector<std::string> &_vector) {
-    Command* local_cmd = command_factory(_vector);
+    Command *local_cmd = command_factory(_vector);
+    std::string run_result;
     if (!local_cmd)
         throw std::invalid_argument("no such command please try again");
 
-    return local_cmd->run_command();
+    run_result = local_cmd->run_command();
+
+    delete local_cmd;
+    return run_result;
 }
 
 Command *CommandHandler::command_factory(std::vector<std::string> &vector) {

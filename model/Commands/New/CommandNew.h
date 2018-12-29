@@ -12,6 +12,7 @@
 class CommandNew : public Command{
 public:
     CommandNew();
+    ~CommandNew();
     std::string run_command();
 };
 

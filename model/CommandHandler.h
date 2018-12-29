@@ -8,12 +8,18 @@
 
 #include <string>
 #include <vector>
+#include <stdexcept>
+
 #include "Command.h"
+#include "Commands/New/CommandNew.h"
+#include "Commands/Exit/CommandExit.h"
+#include "Commands/Print/CommandPrint.h"
+
+
 
 class CommandHandler {
 public:
     std::string create_and_run_command(std::vector<std::string> &_vector);
-    std::string run(Command *pCommand);
 
 private:
 

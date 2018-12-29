@@ -5,5 +5,13 @@
 #include "CommandExit.h"
 
 std::string CommandExit::run_command() {
-    return 0;
+    std::string s = "exit";
+
+
+    return s;
+
+}
+
+CommandExit::CommandExit() {
+    std::cout << "in Command Exit\n";
 }

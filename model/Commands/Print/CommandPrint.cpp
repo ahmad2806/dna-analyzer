@@ -5,9 +5,10 @@
 #include "CommandPrint.h"
 
 std::string CommandPrint::run_command() {
-    return 0;
+    std::string s = "dad";
+    return s;
 }
 
 CommandPrint::CommandPrint() {
-    std::cout << "in Print\n";
+    std::cout << "in command Print\n";
 }

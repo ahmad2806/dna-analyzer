@@ -6,9 +6,14 @@
 #include "CommandNew.h"
 
 std::string CommandNew::run_command() {
-    return 0;
+    std::string s = "dad";
+    return s;
 }
 
 CommandNew::CommandNew() {
-    std::cout << "INTER\n";
+    std::cout << "in command new\n";
+}
+
+CommandNew::~CommandNew() {
+
 }

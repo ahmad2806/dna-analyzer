@@ -10,6 +10,7 @@
 
 class CommandExit : public Command{
 public:
+    CommandExit();
     std::string run_command();
 };
 
