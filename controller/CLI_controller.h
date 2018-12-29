@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 
-#include <iterator>
 #include <sstream>
 
 #include "../view/View.h"

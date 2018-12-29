@@ -5,5 +5,6 @@ int main() {
     CLI_controller cli;
 
     cli.start_program();
+
     return 0;
 }
