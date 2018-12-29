@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 /*
-  Might use singleton !! not sure yes TODO
+  Might use singleton !! not sure yet TODO
  */
 
 class View {
