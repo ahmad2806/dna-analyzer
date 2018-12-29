@@ -9,7 +9,8 @@
 #include <sstream>
 
 #include "../../Command.h"
-#include "../../dna_code/DNA/DnaSquence.h"
+#include "../../dna_code/DataHandler/DataHandler.h"
+
 
 class CommandNew : public Command {
 private:
@@ -23,6 +24,7 @@ private:
     static const int MAX_PARAMS = 3;
     static const int NAME_POSITION = 2;
     static const int SEQUENCE_TO_CREATE_POSITION = 1;
+    static DataHandler * p_data_handler;
 
 public:
     CommandNew();
@@ -30,7 +32,6 @@ public:
     ~CommandNew();
 
     std::string run_command(const std::vector<std::string> &vector);
-
 private:
 
     static inline std::string create_default_name();
@@ -43,17 +44,6 @@ private:
 };
 
 
-/*******************  init static variables *********************/
-
-const std::string CommandNew::LENGTH_ERROR = "This command takes at the most 3 commands <cmd> <seq> [@<name>]";
-
-const std::string CommandNew::NAME_ERROR = "name of sequence should start with @<name> or you "
-                                           "can remove it and we will set a default one for you";
-
-const std::string CommandNew::CREATE_DEFAULT_NAME = "default name";
-const std::string CommandNew::PASS = "pass";
-const std::string CommandNew::SEQUENCE_DEFAULT_NAME = "seq";
-/***************************************************************/
 
 
 const std::string &CommandNew::validation(const std::vector<std::string> &vector) {
