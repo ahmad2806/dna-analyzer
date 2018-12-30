@@ -12,15 +12,17 @@
 
 /******** singleton Handler ********/
 class DataHandler {
-public:
+
+    friend class CommandNew;
+    friend class CommandExit;
+
+private:
     static inline DataHandler* get_instance();
     static inline void reset_instance();
 
 
     std::string try_to_add_data(DnaSequence* _p_dna, std::string _name, unsigned int _id);
 
-
-private:
     DataHandler() { }
     static DataHandler* m_pInstace;
     static std::map<std::string, DnaSequence*> s_dataHolder;

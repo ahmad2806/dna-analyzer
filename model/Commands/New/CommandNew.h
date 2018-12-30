@@ -37,7 +37,6 @@ private:
     static inline std::string create_default_name();
     const inline std::string& validation(const std::vector<std::string> &vector);
 
-    inline std::string build_return_value(unsigned int _id, const std::string &_name, const DnaSequence* const_sequence);
     inline std::string fill_sequence_name(const std::string &_afterValidation, const std::vector<std::string> &vector);
 
     std::string try_to_create_sequence(const std::string &_name, const std::vector<std::string> &_vector);
@@ -75,12 +74,6 @@ std::string CommandNew::create_default_name() {
     return s.str();
 }
 
-std::string CommandNew::build_return_value(unsigned int _id, const std::string &_name, const DnaSequence* const _sequence) {
-    std::ostringstream s;
-    s << "[" << _id << "] "
-      << _name << ": " << *_sequence;
-    return s.str();
-}
 
 std::string CommandNew::fill_sequence_name(const std::string &_afterValidation, const std::vector<std::string> &_vector) {
     std::string name;

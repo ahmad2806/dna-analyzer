@@ -50,9 +50,14 @@ std::string CommandNew::try_to_create_sequence(const std::string &_name, const s
     try {
         DnaSequence* p_newDna = new DnaSequence (_vector.at(SEQUENCE_TO_CREATE_POSITION));
         static unsigned int dnaId = 1;
-        s << p_data_handler->try_to_add_data(p_newDna, _name, dnaId)
+        std::string addResult = p_data_handler->try_to_add_data(p_newDna, _name, dnaId);
+        s << addResult
           << "\n\t";
         s << build_return_value(dnaId, _name, p_newDna) ;
+
+        if (addResult == p_data_handler->DATA_EXISTS)
+            delete p_newDna;
+
         ++dnaId;
 
     } catch (std::invalid_argument &msg) {
