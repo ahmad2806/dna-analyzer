@@ -4,14 +4,12 @@
 
 #include "CLI_controller.h"
 
-void CLI_controller::start_program() const{
+std::string CLI_controller::start_program() const{
     CommandHandler cmdHandler;
 
-    bool b_moreCommands = true;
     std::string input;
     std::string result;
 
-    while (b_moreCommands) {
         bool b_isValidCommand = true;
         std::vector<std::string> v_convertMeToCommand;
 
@@ -25,13 +23,13 @@ void CLI_controller::start_program() const{
             b_isValidCommand = false;
         }
 
-        if (result == "exit") {
+        if (result == "exit")
             View::say_bye();
-            break;
-        }
+
         if (b_isValidCommand )
             View::print_result(result);
-    }
+    return result;
+
 }
 
 void CLI_controller::parse_input_to_vector(const std::string &_input, std::vector<std::string> &myVec) const{
