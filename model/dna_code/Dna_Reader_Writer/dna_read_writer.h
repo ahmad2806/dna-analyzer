@@ -10,10 +10,12 @@
 class Dna_reader_writer {
 public:
     static std::vector<DnaSequence> read_from_file(const char *name);
-    static void write_to_file(const DnaSequence& dna, const char *name);
+
+    static void write_to_file(const DnaSequence &dna, const char *name);
+
     static void write_to_file(const std::vector<DnaSequence> dnas, const char *name);
 
-        virtual ~Dna_reader_writer() = 0;
+    virtual ~Dna_reader_writer() = 0;
 };
 
 

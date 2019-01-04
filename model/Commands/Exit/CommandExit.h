@@ -6,12 +6,12 @@
 #define PROJECT_DNA_ANALYZER_COMMANDEXIT_H
 
 
-#include "../../Command.h"
+#include "../../dna_code/DataHandler/DataHandler.h"
+#include "../DataAccessPermissionCommands.h"
 
 class CommandExit : public Command{
 public:
     CommandExit();
-    bool is_valid(const std::vector<std::string> &vector);
 
     std::string run_command(const std::vector<std::string> &vector);
 };

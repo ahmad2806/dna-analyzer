@@ -9,11 +9,22 @@
 #include <iostream>
 
 #include "../../Command.h"
+#include "../DataAccessPermissionCommands.h"
 
-class CommandPrint: public Command {
+class CommandPrint: public DataAccessPermissionCommands {
+private:
+    static const std::string INPUT_ERROR;
+    static const std::string PASS;
+
+
 public:
     CommandPrint();
     std::string run_command(const std::vector<std::string> &vector);
+
+private:
+    std::string validate_input(const std::vector<std::string> &vector);
+
+    bool this_string_all_numbers(const std::string &_str);
 };
 
 

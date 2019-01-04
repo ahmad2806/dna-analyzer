@@ -8,11 +8,13 @@
 #include <iostream>
 #include <sstream>
 
-#include "../../Command.h"
 #include "../../dna_code/DataHandler/DataHandler.h"
 
+#include "../../../controller/sharedPtr/SharedPtr.h"
+#include "../DataAccessPermissionCommands.h"
 
-class CommandNew : public Command {
+
+class CommandNew : public DataAccessPermissionCommands {
 private:
 
     static const std::string LENGTH_ERROR;
@@ -46,7 +48,9 @@ private:
 
 
 const std::string &CommandNew::validation(const std::vector<std::string> &vector) {
-    if (vector.size() > MAX_PARAMS)
+
+    if ((vector.size() > MAX_PARAMS)
+        || (vector.size()  <= 1))
         return LENGTH_ERROR;
     /*name should start with @*/
     if (vector.size() == MAX_PARAMS) {
@@ -81,7 +85,6 @@ std::string CommandNew::fill_sequence_name(const std::string &_afterValidation, 
         name = create_default_name();
     } else {
         name = _vector.at(NAME_POSITION);
-        name.erase(0, 1); /* removing the @ */
     }
     return name;
 }

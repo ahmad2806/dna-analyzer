@@ -4,13 +4,20 @@
 #include "CommandHandler.h"
 #include "../controller/sharedPtr/SharedPtr.h"
 
-std::string CommandHandler::create_and_run_command(const std::vector<std::string> &_vector) const{
-    Command *local_cmd = command_factory(_vector.at(0));
-    SharedPtr<Command> m_command(local_cmd);
+std::string CommandHandler::create_and_run_command(const std::vector<std::string> &_vector) const {
+    Command *local_cmd = 0;
+
+    /* making sure that we don't get an empty vector */
+    try {
+        local_cmd = command_factory(_vector.at(0));
+    } catch (std::exception e) {
+        throw std::invalid_argument("no such command please try again");
+    }
 
     std::string run_result;
     if (!local_cmd)
         throw std::invalid_argument("no such command please try again");
+    SharedPtr<Command> m_command(local_cmd);
 
     run_result = m_command.get()->run_command(_vector);
 
@@ -18,16 +25,16 @@ std::string CommandHandler::create_and_run_command(const std::vector<std::string
     return run_result;
 }
 
-Command *CommandHandler::command_factory(const std::string & _commandName) const{
+Command *CommandHandler::command_factory(const std::string &_commandName) const {
 
 
     if (_commandName == "new") {
         return new CommandNew();
     }
-    if (_commandName== "print") {
+    if (_commandName == "print") {
         return new CommandPrint();
     }
-    if (_commandName== "exit") {
+    if (_commandName == "exit") {
         return new CommandExit();
     }
     return 0;
