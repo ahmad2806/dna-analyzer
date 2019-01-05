@@ -35,17 +35,14 @@ public:
 
     std::string run_command(const std::vector<std::string> &vector);
     std::string try_to_create_sequence(const std::string &_name, const std::string& _seq);
+
 private:
 
     static inline std::string create_default_name();
-    const inline std::string& validate_input(const std::vector<std::string> &vector);
-
     inline std::string fill_sequence_name(const std::string &_afterValidation, const std::vector<std::string> &vector);
 
+    const inline std::string& validate_input(const std::vector<std::string> &vector);
 };
-
-
-
 
 const std::string &CommandNew::validate_input(const std::vector<std::string> &vector) {
 

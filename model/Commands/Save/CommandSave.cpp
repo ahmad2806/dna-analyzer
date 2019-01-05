@@ -24,15 +24,7 @@ std::string CommandSave::run_command(const std::vector<std::string> &vector) {
 
 }
 
-const std::string &CommandSave::validate_input(const std::vector<std::string> &vector) {
-    if (vector.size() > 3 || vector.size() < 2)
-        return INVALID_INPUT;
 
-    if (!validate_name_or_id(vector[1][0]))
-        return INVALID_INPUT;
-    return PASS;
-
-}
 
 std::string CommandSave::try_to_get_sequence_and_save(const std::vector<std::string> &vector) {
 

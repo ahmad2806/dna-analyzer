@@ -23,6 +23,7 @@ std::string CommandHandler::create_and_run_command(const std::vector<std::string
     return run_result;
 }
 
+
 Command *CommandHandler::command_factory(const std::string &_commandName) const {
 
 
@@ -43,3 +44,4 @@ Command *CommandHandler::command_factory(const std::string &_commandName) const 
     }
     return 0;
 }
+

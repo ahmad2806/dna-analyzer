@@ -11,10 +11,14 @@
 #include "../DataAccessPermissionCommands.h"
 
 class CommandSave : public DataAccessPermissionCommands{
+
     static DataHandler * p_data_handler;
     static Dna_writer* p_dna_writer;
+
 public:
+
     CommandSave();
+
     static const std::string FILE_SUFFIX;
     static const std::string INVALID_INPUT;
     static const std::string PASS;
@@ -22,10 +26,21 @@ public:
     std::string run_command(const std::vector<std::string> &vector);
 
 private:
-    const std::string &validate_input(const std::vector<std::string> &vector);
+
+    inline const std::string &validate_input(const std::vector<std::string> &vector);
+
     std::string try_to_get_sequence_and_save(const std::vector<std::string> &vector);
     std::string try_to_save(std::pair<std::string, DnaSequence *> pair, const std::vector<std::string> &vector);
 };
 
+const std::string &CommandSave::validate_input(const std::vector<std::string> &vector) {
+    if (vector.size() > 3 || vector.size() < 2)
+        return INVALID_INPUT;
+
+    if (!validate_name_or_id(vector[1][0]))
+        return INVALID_INPUT;
+    return PASS;
+
+}
 
 #endif //PROJECT_DNA_ANALYZER_SAVE_H

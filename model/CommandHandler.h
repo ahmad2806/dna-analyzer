@@ -31,4 +31,5 @@ private:
 };
 
 
+
 #endif //PROJECT_DNA_ANALYZER_COMMANDHANDLER_H
