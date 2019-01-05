@@ -34,6 +34,7 @@ public:
     ~CommandNew();
 
     std::string run_command(const std::vector<std::string> &vector);
+    std::string try_to_create_sequence(const std::string &_name, const std::string& _seq);
 private:
 
     static inline std::string create_default_name();
@@ -41,7 +42,6 @@ private:
 
     inline std::string fill_sequence_name(const std::string &_afterValidation, const std::vector<std::string> &vector);
 
-    std::string try_to_create_sequence(const std::string &_name, const std::vector<std::string> &_vector);
 };
 
 

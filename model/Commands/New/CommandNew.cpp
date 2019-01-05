@@ -42,16 +42,16 @@ std::string CommandNew::run_command(const std::vector<std::string> &vector) {
     name = fill_sequence_name(afterValidation, vector);
 
     /* lets create our sequence*/
-    answer = try_to_create_sequence(name, vector);
+    answer = try_to_create_sequence(name, vector[SEQUENCE_TO_CREATE_POSITION]);
 
     return answer;
 }
 
-std::string CommandNew::try_to_create_sequence(const std::string &_name, const std::vector<std::string> &_vector) {
+std::string CommandNew::try_to_create_sequence(const std::string &_name, const std::string& _seq) {
     std::stringstream s;
     std::stringstream sId;
     try {
-        DnaSequence *p_newDna = new DnaSequence(_vector.at(SEQUENCE_TO_CREATE_POSITION));
+        DnaSequence *p_newDna = new DnaSequence(_seq);
 
         static unsigned int dnaId = 1;
         unsigned int local_dnaId = dnaId;
