@@ -14,7 +14,7 @@ const std::string DataHandler::DATA_EXISTS = "this sequence is already exists, f
 const std::string DataHandler::DATA_NOT_EXISTS = "data does not exists please try again";
 const std::string DataHandler::DATA_WAS_ADD = "data was added successfully boss";
 
-std::string DataHandler::try_to_add_data(DnaSequence* _p_dna, std::string _name, unsigned int _id) {
+std::string DataHandler::try_to_add_data(DnaSequence* _p_dna, std::string _name, std::string _id) {
     bool exists = check_if_data_exists(_name);
     if (exists)
         return DATA_EXISTS;
@@ -28,14 +28,13 @@ bool DataHandler::check_if_data_exists(std::string name) {
 }
 
 
-void DataHandler::add_data(DnaSequence* pSequence, std::string _name, unsigned int _id) {
-    std::ostringstream string_id;
-    string_id << _id;
+void DataHandler::add_data(DnaSequence* pSequence, std::string _name, std::string _id) {
 
-    s_dataHolder.insert(std::make_pair(string_id.str(), pSequence));
+
+    s_dataHolder.insert(std::make_pair(_id, pSequence));
 //    s_dataHolder[string_id.str()] = pSequence;
-    s_key_id_value_name[string_id.str()] = _name;
-    s_key_name_value_id[_name] = string_id.str();
+    s_key_id_value_name[_id] = _name;
+    s_key_name_value_id[_name] = _id;
 
 //    std::cout << *s_dataHolder[string_id.str()] << "\n" << s_key_id_value_name[string_id.str()] << "\n" << s_key_name_value_id[_name] << "\n";
 

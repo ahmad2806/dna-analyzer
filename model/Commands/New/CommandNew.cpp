@@ -54,16 +54,21 @@ std::string CommandNew::try_to_create_sequence(const std::string &_name, const s
         DnaSequence *p_newDna = new DnaSequence(_seq);
 
         static unsigned int dnaId = 1;
-        unsigned int local_dnaId = dnaId;
+
+        sId << dnaId;
+        std::string local_dnaId = sId.str();
+
         std::string addResult = p_data_handler->try_to_add_data(p_newDna, _name, local_dnaId);
 
-        if (addResult != p_data_handler->DATA_EXISTS)
+        if (addResult != p_data_handler->DATA_EXISTS) {
             ++dnaId;
+        } else {
+            local_dnaId = p_data_handler->s_key_name_value_id[_name];
+        }
         s << addResult
           << "\n\t";
 
-        sId << local_dnaId ;
-        s << build_return_value(sId.str(), _name, p_newDna, DEFAULT_ACCURACY);
+        s << build_return_value(local_dnaId, _name, p_newDna, DEFAULT_ACCURACY);
 
     } catch (std::invalid_argument &msg) {
         return msg.what();

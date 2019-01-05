@@ -28,7 +28,7 @@ public:
     static const std::string DATA_NOT_EXISTS;
     static const std::string DATA_WAS_ADD;
 
-    std::string try_to_add_data(DnaSequence *_p_dna, std::string _name, unsigned int _id);
+    std::string try_to_add_data(DnaSequence *_p_dna, std::string _name, std::string _id);
 
     std::pair<std::string, DnaSequence *> find_by_name(std::string name);
 
@@ -41,7 +41,7 @@ private:
 
     static DataHandler *m_pInstace;
 
-    void add_data(DnaSequence *pSequence, std::string _name, unsigned int id);
+    void add_data(DnaSequence *pSequence, std::string _name, std::string id);
 
     bool check_if_data_exists(std::string name);
 
