@@ -28,8 +28,8 @@ public:
     virtual ~Command(){};
     std::string get_this_sequence(std::string find_by);
     bool validate_name_or_id(char s);
+    std::vector<std::string> get_name_and_id_from(std::string);
 private:
     std::string return_data_as_string_from(std::pair<std::string, DnaSequence*> );
-    std::vector<std::string> get_name_and_id_from(std::string);
 };
 #endif //PROJECT_DNA_ANALYZER_COMMAND_H
