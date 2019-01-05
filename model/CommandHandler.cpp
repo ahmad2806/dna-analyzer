@@ -2,7 +2,6 @@
 // Created by ahmad on 29/12/2018.
 //
 #include "CommandHandler.h"
-
 std::string CommandHandler::create_and_run_command(const std::vector<std::string> &_vector) const {
     Command *local_cmd = 0;
 
@@ -38,6 +37,9 @@ Command *CommandHandler::command_factory(const std::string &_commandName) const 
     }
     if (_commandName == "save") {
         return new CommandSave();
+    }
+    if (_commandName == "load") {
+        return new CommandLoad();
     }
     return 0;
 }
