@@ -26,7 +26,7 @@ CommandNew::~CommandNew() {}
 
 std::string CommandNew::run_command(const std::vector<std::string> &vector) {
 
-    std::string afterValidation = validation(vector);
+    std::string afterValidation = validate_input(vector);
 
 
     std::string name;

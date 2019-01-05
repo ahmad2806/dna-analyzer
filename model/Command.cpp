@@ -79,3 +79,18 @@ std::vector<std::string> Command::get_name_and_id_from(std::string _input) {
     return nameIdVec;
 }
 
+bool Command::validate_name_or_id(char s) {
+
+    if (s == '@')
+        haveName = 1;
+    else if (s == '#')
+        haveId = 1;
+    else
+        return false;
+    return true;
+}
+
+Command::Command() :haveAccuracy(0){
+
+}
+

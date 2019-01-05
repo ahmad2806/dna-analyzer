@@ -37,12 +37,7 @@ std::string CommandPrint::validate_input(const std::vector<std::string> &vector)
         /* might have a problem if atoi cant handle unsigned int number !! */
         haveAccuracy = (unsigned int )atoi(vector.at(2).c_str());
     }
-    char firstChar = vector.at(1)[0];
-    if (firstChar == '@')
-        haveName = 1;
-    else if (firstChar == '#')
-        haveId = 1;
-    else
+    if (!validate_name_or_id(vector[1][0]))
         return INPUT_ERROR;
     return PASS;
 

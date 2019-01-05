@@ -21,11 +21,13 @@ protected:
     char haveName; /* i have name */
 
 public:
+    Command();
     static DataHandler * p_data_handler;
     std::string build_return_value (std::string _id, std::string _name, const DnaSequence*const _sequence, unsigned int _accuracy);
     virtual std::string run_command(const std::vector<std::string> &vector) = 0;
     virtual ~Command(){};
     std::string get_this_sequence(std::string find_by);
+    bool validate_name_or_id(char s);
 private:
     std::string return_data_as_string_from(std::pair<std::string, DnaSequence*> );
     std::vector<std::string> get_name_and_id_from(std::string);

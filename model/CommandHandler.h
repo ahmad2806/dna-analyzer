@@ -10,11 +10,13 @@
 #include <vector>
 #include <stdexcept>
 
+#include "../controller/sharedPtr/SharedPtr.h"
+
 #include "Command.h"
 #include "Commands/New/CommandNew.h"
 #include "Commands/Exit/CommandExit.h"
 #include "Commands/Print/CommandPrint.h"
-
+#include "Commands/Save/CommandSave.h"
 
 
 class CommandHandler {

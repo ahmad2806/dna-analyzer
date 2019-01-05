@@ -37,7 +37,7 @@ public:
 private:
 
     static inline std::string create_default_name();
-    const inline std::string& validation(const std::vector<std::string> &vector);
+    const inline std::string& validate_input(const std::vector<std::string> &vector);
 
     inline std::string fill_sequence_name(const std::string &_afterValidation, const std::vector<std::string> &vector);
 
@@ -47,7 +47,7 @@ private:
 
 
 
-const std::string &CommandNew::validation(const std::vector<std::string> &vector) {
+const std::string &CommandNew::validate_input(const std::vector<std::string> &vector) {
 
     if ((vector.size() > MAX_PARAMS)
         || (vector.size()  <= 1))
