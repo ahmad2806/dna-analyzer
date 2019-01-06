@@ -18,7 +18,7 @@
 #include "Commands/Print/CommandPrint.h"
 #include "Commands/Save/CommandSave.h"
 #include "Commands/Load/CommandLoad.h"
-
+#include "Commands/List/CommandList.h"
 
 
 class CommandHandler {

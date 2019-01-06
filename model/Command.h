@@ -20,7 +20,7 @@ protected:
     static const unsigned int DEFAULT_OFFSET = 8;
 
     char haveId; /* i have id */
-    unsigned int haveAccuracy; /* i have id */
+    unsigned int haveAccuracy; /* i have accuracy */
     char haveName; /* i have name */
 
 public:
