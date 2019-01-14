@@ -12,7 +12,7 @@
 #include <cstring>
 #include <stdexcept>
 #include <vector>
-#include "../Nucleotide/Nucleotide.h"
+#include "../../Nucleotide/Nucleotide.h"
 
 class DnaSequence {
 
@@ -40,12 +40,14 @@ public:
     const Nucleotide operator[](int i) const; // if this is const ... we want to return a copy of that char (to not allow changes)
     Nucleotide &operator[](int i); // if non const object was passed .. we return the reference to that char
 
+    friend std::ostream &operator<<(std::ostream &os, const DnaSequence &squence);
+
+
     size_t getlength() const;
 
     Nucleotide *const &get_dna_sequence() const;
 
 
-    friend std::ostream &operator<<(std::ostream &os, const DnaSequence &squence);
 
 
     size_t find_sub_string(const DnaSequence &sub_seq, size_t pos = 0) const;
