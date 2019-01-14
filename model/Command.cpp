@@ -19,14 +19,14 @@ std::string Command::build_return_value(std::string _id, std::string _name, cons
     std::string str;
 
     /* if _accuracy is bigger than unsigned int, then we got error because it enters to the loop !! */
-    if (_sequence->getlength() > DEFAULT_ACCURACY || _sequence->getlength() > _accuracy) {
+    if (_sequence->size() > DEFAULT_ACCURACY || _sequence->size() > _accuracy) {
 
         for (i = 0; i < _accuracy - DEFAULT_OFFSET; ++i) {
 
             str += _sequence->operator[](i);
         }
 
-        unsigned int len = _sequence->getlength();
+        unsigned int len = _sequence->size();
         s << str
           << "..."
           << _sequence->operator[](len - 3)

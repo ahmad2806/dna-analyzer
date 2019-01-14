@@ -6,7 +6,7 @@
 #define PROJECT_DNA_ANALYZER_DNA_WRITER_H
 
 
-#include "../../DNA/DnaSquence.h"
+#include "../../DNA/DnaSequence/DnaSquence.h"
 #include <fstream>
 
 class Dna_writer {

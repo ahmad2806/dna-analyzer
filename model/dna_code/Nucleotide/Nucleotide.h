@@ -15,10 +15,11 @@ public:
 
     Nucleotide();
 
-    Nucleotide &operator=(const Nucleotide& other);
+    Nucleotide &operator=(const Nucleotide &other);
 
     Nucleotide &operator=(const char my_char);
 
+    inline const Nucleotide pair() const;
 
 
     bool operator==(const Nucleotide &other) const;
@@ -45,6 +46,23 @@ inline std::ostream &operator<<(std::ostream &os, const Nucleotide &squence) {
 
 inline bool Nucleotide::operator==(const Nucleotide &other) const {
     return this->m_nucleotide == other.m_nucleotide;
+}
+
+const Nucleotide Nucleotide::pair() const{
+    std::string lets_pair;
+    lets_pair = "";
+    size_t i;
+
+    if (m_nucleotide == 'T')
+        return Nucleotide('A');
+
+    if (m_nucleotide == 'A')
+        return Nucleotide('T');
+
+    if (m_nucleotide == 'C')
+        return Nucleotide('G');
+
+    return Nucleotide('C');
 }
 
 

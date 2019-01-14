@@ -9,7 +9,7 @@ std::string Dna_writer::write_to_file(const DnaSequence& dna_seq, const char *na
     my_file.open(name, std::fstream::app);
     if (my_file.is_open()) {
         size_t i;
-        size_t len = dna_seq.getlength();
+        size_t len = dna_seq.size();
         Nucleotide * seq = dna_seq.get_dna_sequence();
         for (i = 0; i < len; ++i)
             my_file << seq[i];
@@ -17,7 +17,7 @@ std::string Dna_writer::write_to_file(const DnaSequence& dna_seq, const char *na
         my_file.close();
     } else
         return "error while opening file\n";
-    return "Dna was added to file successfully";
+    return "IDna was added to file successfully";
 }
 
 void Dna_writer::write_to_file(const std::vector<DnaSequence > dnas, const char *name) {

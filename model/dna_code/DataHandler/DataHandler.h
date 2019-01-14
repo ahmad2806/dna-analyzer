@@ -8,7 +8,7 @@
 
 #include <sstream>
 #include <map>
-#include "../../dna_code/DNA/DnaSquence.h"
+#include "../DNA/DnaSequence/DnaSquence.h"
 #include "../../../controller/sharedPtr/SharedPtr.h"
 
 /******** singleton Handler ********/

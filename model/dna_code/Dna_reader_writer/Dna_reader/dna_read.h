@@ -4,7 +4,7 @@
 #ifndef DNA_DNA_READER_WRITER_H
 #define DNA_DNA_READER_WRITER_H
 
-#include "../../DNA/DnaSquence.h"
+#include "../../DNA/DnaSequence/DnaSquence.h"
 #include <fstream>
 class Dna_reader {
 public:

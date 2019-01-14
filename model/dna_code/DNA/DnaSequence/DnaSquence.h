@@ -13,8 +13,9 @@
 #include <stdexcept>
 #include <vector>
 #include "../../Nucleotide/Nucleotide.h"
+#include "../IDna.h"
 
-class DnaSequence {
+class DnaSequence: public IDna {
 
 
 public:
@@ -43,7 +44,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const DnaSequence &squence);
 
 
-    size_t getlength() const;
+    size_t size() const;
 
     Nucleotide *const &get_dna_sequence() const;
 
@@ -90,7 +91,7 @@ inline Nucleotide &DnaSequence::operator[](int i) {
 
 }
 
-inline size_t DnaSequence::getlength() const {
+inline size_t DnaSequence::size() const {
     return length;
 }
 

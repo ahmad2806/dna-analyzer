@@ -8,7 +8,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include "dna_code/DNA/DnaSquence.h"
+#include "dna_code/DNA/DnaSequence/DnaSquence.h"
 #include "../controller/sharedPtr/SharedPtr.h"
 #include "dna_code/DataHandler/DataHandler.h"
 

@@ -82,7 +82,7 @@ DnaSequence &DnaSequence::operator=(const std::string &s) {
 
 bool DnaSequence::operator==(const DnaSequence &rhs) const {
     size_t i = 0;
-    if (this->getlength() == rhs.getlength()) {
+    if (this->size() == rhs.size()) {
         size_t len = length;
         for (; i < len; ++i) {
             if (dna_sequence[i] == rhs[i])
@@ -119,7 +119,7 @@ DnaSequence::~DnaSequence() {
 std::ostream &operator<<(std::ostream &os, const DnaSequence &squence) {
 
     size_t i;
-    size_t len = squence.getlength();
+    size_t len = squence.size();
 
     for (i = 0; i < len; ++i)
         os << squence[i];
@@ -130,7 +130,7 @@ std::ostream &operator<<(std::ostream &os, const DnaSequence &squence) {
 const DnaSequence DnaSequence::slice_me(size_t from, size_t to) const {
     std::string str1;
 
-    if (from > to || to > this->getlength() - 1 || to - from < 2)
+    if (from > to || to > this->size() - 1 || to - from < 2)
         throw std::invalid_argument("invalid argu to slice");
 
     size_t i;
@@ -176,7 +176,7 @@ size_t DnaSequence::find_sub_string(const DnaSequence &sub_seq, size_t pos) cons
 //    std::cout << *this<<"        "<<sub_seq<<std::endl;
 //    size_t sub_at;
 //    if (pos)
-//        sub_at = str1.find((char *) sub_seq.dna_sequence, pos + sub_seq.getlength());
+//        sub_at = str1.find((char *) sub_seq.dna_sequence, pos + sub_seq.size());
 //
 //    sub_at = str1.find((char *) sub_seq.dna_sequence);
 //    if (sub_at == (size_t) -1)
@@ -190,21 +190,9 @@ const DnaSequence DnaSequence::pairing() {
     std::string lets_pair;
     lets_pair = "";
     size_t i;
-    size_t len = this->getlength();
+    size_t len = this->size();
     for (i = 0; i < len; ++i) {
-        if (this->dna_sequence[i] == 'T') {
-            //this->dna_sequence[i] = 'A';
-            lets_pair += 'A';
-        } else if (this->dna_sequence[i] == 'A') {
-            //   this->dna_sequence[i] ='T';
-            lets_pair += 'T';
-        } else if (this->dna_sequence[i] == 'C') {
-            //this->dna_sequence[i] == 'G';
-            lets_pair += 'G';
-        } else if (this->dna_sequence[i] == 'G') {
-            //this->dna_sequence[i] == 'C';
-            lets_pair += 'C';
-        }
+        lets_pair += this->dna_sequence[i].pair().get_nucleotide();
     }
     return DnaSequence(lets_pair);
 }
@@ -217,7 +205,7 @@ size_t DnaSequence::count(const DnaSequence &sub_seq) const {
         while (pos >= 0) {
 
             ++counter;
-            pos = this->find_sub_string(sub_seq, pos + sub_seq.getlength());
+            pos = this->find_sub_string(sub_seq, pos + sub_seq.size());
         }
     } catch (std::invalid_argument &msg) {/*do nothing*/}
 
