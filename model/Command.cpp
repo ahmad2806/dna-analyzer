@@ -6,7 +6,7 @@
 
 DataHandler *Command::p_data_handler = DataHandler::get_instance();
 
-std::string Command::build_return_value(std::string _id, std::string _name, const DnaSequence *const _sequence,
+std::string Command::build_return_value(std::string _id, std::string _name, std::tr1::shared_ptr<IDna> _sequence,
                                         unsigned int _accuracy) {
     std::ostringstream s;
     s << "[" << _id << "] ";
@@ -19,7 +19,7 @@ std::string Command::build_return_value(std::string _id, std::string _name, cons
     std::string str;
 
     /* if _accuracy is bigger than unsigned int, then we got error because it enters to the loop !! */
-    if (_sequence->size() > DEFAULT_ACCURACY || _sequence->size() > _accuracy) {
+    if ((_sequence).get()->size() > _accuracy) {
 
         for (i = 0; i < _accuracy - DEFAULT_OFFSET; ++i) {
 
@@ -34,7 +34,7 @@ std::string Command::build_return_value(std::string _id, std::string _name, cons
           << _sequence->operator[](len - 1);
 
     } else
-        s << *_sequence;
+        s << _sequence.get();
 
 
     return s.str();

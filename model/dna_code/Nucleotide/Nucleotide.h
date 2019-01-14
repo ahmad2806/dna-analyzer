@@ -51,7 +51,6 @@ inline bool Nucleotide::operator==(const Nucleotide &other) const {
 const Nucleotide Nucleotide::pair() const{
     std::string lets_pair;
     lets_pair = "";
-    size_t i;
 
     if (m_nucleotide == 'T')
         return Nucleotide('A');

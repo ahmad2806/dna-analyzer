@@ -7,6 +7,8 @@
 
 
 #include "../Nucleotide/Nucleotide.h"
+#include <tr1/memory>
+#include <tr1/shared_ptr.h>
 
 class IDna {
 
@@ -15,6 +17,9 @@ public:
     virtual const Nucleotide operator[](int i) const = 0;
 
     virtual size_t size() const = 0;
+    virtual Nucleotide *const &get_dna_sequence() const = 0;
+
+    friend std::ostream &operator<<(std::ostream &os, const IDna *squence);
 
     virtual ~IDna();
 };

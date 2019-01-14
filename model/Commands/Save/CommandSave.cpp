@@ -28,7 +28,7 @@ std::string CommandSave::run_command(const std::vector<std::string> &vector) {
 
 std::string CommandSave::try_to_get_sequence_and_save(const std::vector<std::string> &vector) {
 
-    std::pair<std::string, DnaSequence *> answer;
+    std::pair<std::string, std::tr1::shared_ptr<IDna> > answer;
     if (haveName)
         answer = p_data_handler->find_by_name(vector[1]);
     else if (haveId)
@@ -40,7 +40,7 @@ std::string CommandSave::try_to_get_sequence_and_save(const std::vector<std::str
 }
 
 std::string
-CommandSave::try_to_save(std::pair<std::string, DnaSequence *> pair, const std::vector<std::string> &vector) {
+CommandSave::try_to_save(std::pair<std::string, std::tr1::shared_ptr<IDna> > pair, const std::vector<std::string> &vector) {
     std::string seqName = get_name_and_id_from(pair.first)[1];
     std::string fileName;
     if (vector.size() == 2) {
@@ -51,5 +51,5 @@ CommandSave::try_to_save(std::pair<std::string, DnaSequence *> pair, const std::
     }
     std::stringstream s;
     s << fileName << FILE_SUFFIX;
-    return p_dna_writer->write_to_file(*(pair.second), s.str().c_str());
+    return p_dna_writer->write_to_file(pair.second, s.str().c_str());
 }

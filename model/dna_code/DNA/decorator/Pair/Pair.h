@@ -6,8 +6,6 @@
 #define PROJECT_DNA_ANALYZER_PAIR_H
 
 #include "../../IDna.h"
-#include <tr1/memory>
-#include <tr1/shared_ptr.h>
 
 class Pair:public  IDna {
     std::tr1::shared_ptr<IDna> m_dna;

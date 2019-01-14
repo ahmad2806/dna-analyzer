@@ -8,6 +8,7 @@
 
 #include <sstream>
 #include <map>
+#include "../DNA/IDna.h"
 #include "../DNA/DnaSequence/DnaSquence.h"
 #include "../../../controller/sharedPtr/SharedPtr.h"
 
@@ -20,7 +21,7 @@ public:
 
     static inline void reset_instance();
 
-    static std::map<std::string, DnaSequence *> s_dataHolder;
+    static std::map<std::string, std::tr1::shared_ptr<IDna> > s_dataHolder;
     static std::map<std::string, std::string> s_key_name_value_id;
     static std::map<std::string, std::string> s_key_id_value_name;
 
@@ -28,11 +29,11 @@ public:
     static const std::string DATA_NOT_EXISTS;
     static const std::string DATA_WAS_ADD;
 
-    std::string try_to_add_data(DnaSequence *_p_dna, std::string _name, std::string _id);
+    std::string try_to_add_data(std::tr1::shared_ptr<IDna>_p_dna, std::string _name, std::string _id);
 
-    std::pair<std::string, DnaSequence *> find_by_name(std::string name);
+    std::pair<std::string, std::tr1::shared_ptr<IDna> > find_by_name(std::string name);
 
-    std::pair<std::string, DnaSequence *> find_by_id(std::string basic_string);
+    std::pair<std::string, std::tr1::shared_ptr<IDna> > find_by_id(std::string basic_string);
 
 private:
 
@@ -41,11 +42,11 @@ private:
 
     static DataHandler *m_pInstace;
 
-    void add_data(DnaSequence *pSequence, std::string _name, std::string id);
+    void add_data(std::tr1::shared_ptr<IDna> pSequence, std::string _name, std::string id);
 
     bool check_if_data_exists(std::string name);
 
-    std::pair<std::string, DnaSequence *> fetch_data_and_return(std::string id, std::string name);
+    std::pair<std::string, std::tr1::shared_ptr<IDna> > fetch_data_and_return(std::string id, std::string name);
 };
 
 DataHandler *DataHandler::get_instance() {

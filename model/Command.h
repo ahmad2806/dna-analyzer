@@ -27,7 +27,7 @@ public:
     static DataHandler * p_data_handler;
 
     Command();
-    std::string build_return_value (std::string _id, std::string _name, const DnaSequence*const _sequence, unsigned int _accuracy);
+    std::string build_return_value (std::string _id, std::string _name, std::tr1::shared_ptr<IDna> _sequence, unsigned int _accuracy);
 
     virtual std::string run_command(const std::vector<std::string> &vector) = 0;
     virtual ~Command(){};
@@ -37,12 +37,12 @@ public:
     inline std::vector<std::string> get_name_and_id_from(std::string);
 
 private:
-    inline std::string return_data_as_string_from(std::pair<std::string, DnaSequence*> );
+    inline std::string return_data_as_string_from(std::pair<std::string, std::tr1::shared_ptr<IDna> > );
 };
 
 
 std::string Command::get_this_sequence(std::string find_by) {
-    std::pair<std::string, DnaSequence *> localPair;
+    std::pair<std::string, std::tr1::shared_ptr<IDna> > localPair;
     if (haveName) {
         try {
             localPair = p_data_handler->find_by_name(find_by);
@@ -60,13 +60,14 @@ std::string Command::get_this_sequence(std::string find_by) {
 
 }
 
-std::string Command::return_data_as_string_from(std::pair<std::string, DnaSequence *> pair) {
+std::string Command::return_data_as_string_from(std::pair<std::string, std::tr1::shared_ptr<IDna> > pair) {
     std::vector<std::string> idNameVec;
     idNameVec = get_name_and_id_from(pair.first);
 
     unsigned int  accuracy = haveAccuracy;
     if (accuracy == 0)
         accuracy = DEFAULT_ACCURACY;
+
     return build_return_value(idNameVec[0], idNameVec[1], pair.second, accuracy);
 }
 

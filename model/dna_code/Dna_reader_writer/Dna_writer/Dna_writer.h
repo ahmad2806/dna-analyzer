@@ -10,10 +10,11 @@
 #include <fstream>
 
 class Dna_writer {
+    static const std::string FILE_EXISTS;
 public:
-    static std::string write_to_file(const DnaSequence &dna, const char *name);
+    static std::string write_to_file(std::tr1::shared_ptr<IDna> dna, const char *name);
 
-    static void write_to_file(const std::vector<DnaSequence> dnas, const char *name);
+    static void write_to_file(std::vector<std::tr1::shared_ptr<IDna> >  dnas, const char *name);
 
 };
 

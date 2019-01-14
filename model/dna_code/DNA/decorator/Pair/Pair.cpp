@@ -3,8 +3,6 @@
 //
 
 #include "Pair.h"
-#include "../../DnaSequence/DnaSquence.h"
-
 
 
 Pair::Pair(std::tr1::shared_ptr<IDna> dna): m_dna(dna) {}

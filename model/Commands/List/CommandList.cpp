@@ -11,13 +11,16 @@ const std::string CommandList::PASS = "PASS";
 std::string CommandList::run_command(const std::vector<std::string> &vector) {
     std::string validation = validate_input(vector);
 
-    std::map<std::string, DnaSequence*>::iterator it;
+    std::map<std::string, std::tr1::shared_ptr<IDna> >::iterator it;
 
     std::stringstream answer;
 
     char is_empty = 1;
     for ( it = p_data_handler->s_dataHolder.begin(); it != p_data_handler->s_dataHolder.end(); it++ ) {
             is_empty = 0;
+            std::cout << it->first << std::endl;
+            std::cout << p_data_handler->s_dataHolder.size()<< std::endl;
+            std::cout << it->second << std::endl;
             answer  << get_dna_details_as_string(it->first, it->second) << "\n";
     }
     if (is_empty)

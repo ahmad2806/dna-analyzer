@@ -30,7 +30,7 @@ private:
     inline const std::string &validate_input(const std::vector<std::string> &vector);
 
     std::string try_to_get_sequence_and_save(const std::vector<std::string> &vector);
-    std::string try_to_save(std::pair<std::string, DnaSequence *> pair, const std::vector<std::string> &vector);
+    std::string try_to_save(std::pair<std::string, std::tr1::shared_ptr<IDna> > pair, const std::vector<std::string> &vector);
 };
 
 const std::string &CommandSave::validate_input(const std::vector<std::string> &vector) {

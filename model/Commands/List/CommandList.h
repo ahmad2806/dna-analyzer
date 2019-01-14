@@ -19,7 +19,7 @@ public:
     static const std::string LIST_IS_EMPTY;
 private:
 
-    inline std::string get_dna_details_as_string(std::string _id, DnaSequence* _p_dna);
+    inline std::string get_dna_details_as_string(std::string _id, std::tr1::shared_ptr<IDna> _p_dna);
 };
 
 std::string CommandList::validate_input(const std::vector<std::string> &vector) {
@@ -29,7 +29,7 @@ std::string CommandList::validate_input(const std::vector<std::string> &vector) 
 }
 
 
-std::string CommandList::get_dna_details_as_string(std::string _id, DnaSequence* _p_dna) {
+std::string CommandList::get_dna_details_as_string(std::string _id, std::tr1::shared_ptr<IDna> _p_dna) {
 
     return build_return_value(_id, p_data_handler->s_key_id_value_name[_id], _p_dna, DEFAULT_ACCURACY);
 }
