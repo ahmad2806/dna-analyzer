@@ -1,7 +1,4 @@
-A system which performs creation, manipulation, management, and analytic operations on DNA sequences
-for research purposes. 
 
-Implemented with C++98 using the MVC design pattern with emphasis on the SOLID principles.
 
 # DNA Analyzer System
 ## A DNA Sequence Analyzer App Goal
